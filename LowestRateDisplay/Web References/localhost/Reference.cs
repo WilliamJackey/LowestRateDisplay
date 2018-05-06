@@ -29,7 +29,7 @@ namespace LowestRateDisplay.localhost {
     [System.Web.Services.WebServiceBindingAttribute(Name="LowestRateSoap", Namespace="http://tempuri.org/")]
     public partial class LowestRate : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
-        private System.Threading.SendOrPostCallback calculateLowestRateOperationCompleted;
+        private System.Threading.SendOrPostCallback CalculateLowestRateOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -70,36 +70,36 @@ namespace LowestRateDisplay.localhost {
         }
         
         /// <remarks/>
-        public event calculateLowestRateCompletedEventHandler calculateLowestRateCompleted;
+        public event CalculateLowestRateCompletedEventHandler CalculateLowestRateCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/calculateLowestRate", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string calculateLowestRate(System.DateTime dtStartDate, System.DateTime dtEndDate) {
-            object[] results = this.Invoke("calculateLowestRate", new object[] {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CalculateLowestRate", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string CalculateLowestRate(System.DateTime dtStartDate, System.DateTime dtEndDate) {
+            object[] results = this.Invoke("CalculateLowestRate", new object[] {
                         dtStartDate,
                         dtEndDate});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void calculateLowestRateAsync(System.DateTime dtStartDate, System.DateTime dtEndDate) {
-            this.calculateLowestRateAsync(dtStartDate, dtEndDate, null);
+        public void CalculateLowestRateAsync(System.DateTime dtStartDate, System.DateTime dtEndDate) {
+            this.CalculateLowestRateAsync(dtStartDate, dtEndDate, null);
         }
         
         /// <remarks/>
-        public void calculateLowestRateAsync(System.DateTime dtStartDate, System.DateTime dtEndDate, object userState) {
-            if ((this.calculateLowestRateOperationCompleted == null)) {
-                this.calculateLowestRateOperationCompleted = new System.Threading.SendOrPostCallback(this.OncalculateLowestRateOperationCompleted);
+        public void CalculateLowestRateAsync(System.DateTime dtStartDate, System.DateTime dtEndDate, object userState) {
+            if ((this.CalculateLowestRateOperationCompleted == null)) {
+                this.CalculateLowestRateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCalculateLowestRateOperationCompleted);
             }
-            this.InvokeAsync("calculateLowestRate", new object[] {
+            this.InvokeAsync("CalculateLowestRate", new object[] {
                         dtStartDate,
-                        dtEndDate}, this.calculateLowestRateOperationCompleted, userState);
+                        dtEndDate}, this.CalculateLowestRateOperationCompleted, userState);
         }
         
-        private void OncalculateLowestRateOperationCompleted(object arg) {
-            if ((this.calculateLowestRateCompleted != null)) {
+        private void OnCalculateLowestRateOperationCompleted(object arg) {
+            if ((this.CalculateLowestRateCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.calculateLowestRateCompleted(this, new calculateLowestRateCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.CalculateLowestRateCompleted(this, new CalculateLowestRateCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -124,17 +124,17 @@ namespace LowestRateDisplay.localhost {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2053.0")]
-    public delegate void calculateLowestRateCompletedEventHandler(object sender, calculateLowestRateCompletedEventArgs e);
+    public delegate void CalculateLowestRateCompletedEventHandler(object sender, CalculateLowestRateCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2053.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class calculateLowestRateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class CalculateLowestRateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal calculateLowestRateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal CalculateLowestRateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

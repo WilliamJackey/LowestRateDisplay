@@ -6,7 +6,7 @@ namespace LowestRateDisplay.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        public ActionResult search(searchModel search)
+        public ActionResult Search(SearchModel search)
         {
             // first time, we don't input any field, so just return without data
             if(search == null || search.Criteria == null)
@@ -14,8 +14,8 @@ namespace LowestRateDisplay.Controllers
                 return View();
             }
             localhost.LowestRate lowestRate = new localhost.LowestRate();
-            searchModel model = new searchModel();
-            var szResult = lowestRate.calculateLowestRate(search.Criteria.StartDeate, search.Criteria.EndDeate);
+            SearchModel model = new SearchModel();
+            var szResult = lowestRate.CalculateLowestRate(search.Criteria.StartDeate, search.Criteria.EndDeate);
             model.Result = szResult;
             return View(model);
         }

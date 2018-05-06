@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MCAP.Nova.LowestRateDisplay.Models
 {
-    public class searchCriteria
+    public class SearchCriteria
     {
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         [Required]

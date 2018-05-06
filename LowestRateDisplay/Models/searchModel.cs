@@ -1,8 +1,8 @@
 ﻿namespace MCAP.Nova.LowestRateDisplay.Models
 {
-    public class searchModel
+    public class SearchModel
     {
-        public searchCriteria Criteria { get; set; }
+        public SearchCriteria Criteria { get; set; }
         public string Result { get; set; }
     }
 }
