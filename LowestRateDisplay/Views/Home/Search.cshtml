@@ -1,0 +1,31 @@
+﻿@model MCAP.Nova.LowestRateDisplay.Models.searchModel
+@{
+    ViewBag.Title = "Lowest rate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm("Search", "Home", FormMethod.Post))
+{
+    <div class = "form-control">
+        <label class="display-label">Start Date</label>
+        @Html.TextBoxFor(model => model.Criteria.StartDeate, new { @type = "datetime", id="startDate" })
+        @Html.ValidationMessageFor(model => model.Criteria.StartDeate)
+    </div>
+    <div class = "form-control">
+        <label class="display-label">End  Date</label>&nbsp;
+        @Html.TextBoxFor(model => model.Criteria.EndDeate, new { @type = "datetime", id = "endDate" })
+        @Html.ValidationMessageFor(model => model.Criteria.EndDeate)
+        </div>
+        <button type="submit" id="Find" name="action">
+            Calculate
+        </button>
+    }
+    <div>
+        @if(Model != null)
+        {
+            @Model.Result
+        }
+
+    </div>
+
